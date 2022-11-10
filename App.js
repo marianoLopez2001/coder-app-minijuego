@@ -1,11 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import GameScreen from './Screens/GameScreen';
+import StartScreen from './Screens/StartScreen';
 
 export default function App() {
+
+  const [switchScreen, setSwitchScreen] = useState(false)
+
+  const handleSwitchScreen = () => {
+    setSwitchScreen(true)
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      {switchScreen ? <GameScreen /> : <StartScreen handleSwitchScreen={handleSwitchScreen} style={styles.container} />}
     </View>
   );
 }
