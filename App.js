@@ -1,28 +1,14 @@
-import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import GameScreen from './Screens/GameScreen';
-import StartScreen from './Screens/StartScreen';
+import { StyleSheet } from 'react-native'
+import ShopNavigation from "./src/navigation/ShopNavigation"
 
-export default function App() {
-
-  const [switchScreen, setSwitchScreen] = useState(false)
-
-  const handleSwitchScreen = () => {
-    setSwitchScreen(true)
-  }
-
+const App = () => {
   return (
-    <View style={styles.container}>
-      {switchScreen ? <GameScreen /> : <StartScreen handleSwitchScreen={handleSwitchScreen} style={styles.container} />}
-    </View>
-  );
+    <>
+      <ShopNavigation />
+    </>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
+
+const styles = StyleSheet.create({})
