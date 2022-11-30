@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native'
-import ShopNavigation from "./src/navigation/ShopNavigation"
+import BottomTabNavigator from "./src/navigation/BottomTabNavigator"
 
 const App = () => {
   return (
     <>
-      <ShopNavigation />
+      <BottomTabNavigator />
     </>
   )
 }

@@ -1,12 +1,35 @@
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, FlatList } from 'react-native'
 import React from 'react'
+import BreadItem from '../components/BreadItem'
+import productos from "../data/productos"
 
-const Panes = ({navigation}) => {
+const Panes = ({ navigation, route }) => {
+
+  const breads = productos.filter(i => i.category === route.params.name)
+
+  const handleSelected = (item) => {
+    navigation.navigate("Detalles", {
+      productId: item.id,
+      name: item.titulo,
+    });
+  };
+
+  const renderItem = ({ item }) => {
+    return (
+      <BreadItem
+        item={item}
+        onSelected={handleSelected}
+      />
+    )
+  }
+
   return (
-    <View>
-      <Text>Panes</Text>
-      <Button title='Ir a SobreNosotros' onPress={() => navigation.navigate("SobreNosotros")}/>
-    </View>
+    <FlatList
+      data={breads}
+      key={() => { item.id }}
+      renderItem={renderItem}
+      numColumns={2}
+    />
   )
 }
 

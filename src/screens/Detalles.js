@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View, Button } from 'react-native'
 import React from 'react'
 
-const SobreNosotros = ({navigation}) => {
+const Detalles = ({navigation}) => {
   return (
     <View>
-      <Text>SobreNosotros</Text>
+      <Text>Detalles</Text>
       <Button title='Ir a Inicio' onPress={() => navigation.navigate("Inicio")}/>
     </View>
   )
 }
 
-export default SobreNosotros
+export default Detalles
 
 const styles = StyleSheet.create({})
