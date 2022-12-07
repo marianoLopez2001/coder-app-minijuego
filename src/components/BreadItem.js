@@ -5,12 +5,9 @@ const BreadItem = ({ item, onSelected }) => {
     return (
         <TouchableOpacity style={styles.breadItem} onPress={() => onSelected(item)}>
             <View>
-                <View>
-                    <Text style={styles.title}>{item.titulo}</Text>
-                </View>
-                <View>
-                    <Text style={styles.subtitle}>{item.precio}</Text>
-                </View>
+                <Text style={styles.title}>{item.name}</Text>
+                <Text style={styles.subtitle}>{item.price}</Text>
+                <Text style={styles.subsubtitle}>{item.description}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -30,11 +27,16 @@ const styles = StyleSheet.create({
         textAlign: "center",
         margin: 10,
         fontSize: 25,
-        fontWeight:"bold",
+        fontWeight: "bold",
     },
     subtitle: {
         textAlign: "center",
         margin: 10,
         fontSize: 18,
+    },
+    subsubtitle: {
+        textAlign: "center",
+        margin: 5,
+        fontSize: 12,
     }
 })

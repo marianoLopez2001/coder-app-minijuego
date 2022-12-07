@@ -1,8 +1,22 @@
-const categories = [
-    { titulo: "masa madre", id: 1 },
-    { titulo: "integral", id: 2 },
-    { titulo: "harina de arroz", id: 3 },
-    { titulo: "harina de trigo", id: 4 },
-]
-
-export default categories
+export const CATEGORIES = [
+    {
+      id: "1",
+      title: "Harinas Puras",
+      color: "#896978",
+    },
+    {
+      id: "2",
+      title: "Harinas Integrales",
+      color: "#839791",
+    },
+    {
+      id: "3",
+      title: "Panes Saborizados",
+      color: "#aac0af",
+    },
+    {
+      id: "4",
+      title: "Otros Productos de Panaderia",
+      color: "#896978",
+    },
+  ];

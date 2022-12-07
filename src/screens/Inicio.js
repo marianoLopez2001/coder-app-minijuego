@@ -1,39 +1,33 @@
-import { StyleSheet, FlatList } from 'react-native'
-import React from 'react'
-import GridItem from '../components/GridItem'
-import categories from "../data/categories"
+import React from "react";
+import { FlatList } from "react-native";
+import GridItem from "../components/GridItem";
 
+import { useSelector, useDispatch, connect } from "react-redux";
+import { selectedCategory } from "../store/actions/category.action";
 
 const Inicio = ({ navigation }) => {
+  const categories = useSelector((state) => state.categories.categories);
+  const dispatch = useDispatch();
 
-  const handleSelected = (item) => {
+  const handleSelectedCategory = (item) => {
+    dispatch(selectedCategory(item.id));
     navigation.navigate("Panes", {
-      categoryID: item.id,
-      name: item.titulo,
-    });
+      name: item.title,
+    }); 
   };
 
-  const renderGridItem = ({ item }) => {
-    return (
-      <GridItem
-        item={item}
-        onSelected={handleSelected}
-      />
-    )
-  }
-
+  const renderGridItem = ({ item }) => (
+    <GridItem item={item} onSelected={handleSelectedCategory} />
+  );
 
   return (
     <FlatList
       data={categories}
-      key={() => { item.id }}
+      keyExtractor={(item) => item.id}
       renderItem={renderGridItem}
       numColumns={2}
     />
-  )
-}
+  );
+};
 
-export default Inicio
-
-const styles = StyleSheet.create({
-})
+export default connect()(Inicio);
