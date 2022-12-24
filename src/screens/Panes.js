@@ -6,7 +6,7 @@ import { BREADS } from "../data/bread";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { filteredBread, selectBread } from "../store/actions/bread.action";
 
-const Panes = ({ navigation, route }) => {
+const Panes = ({ navigation }) => {
   const dispatch = useDispatch();
   const categoryBreads = useSelector((state) => state.breads.filteredBread);
   const category = useSelector((state) => state.categories.selected);
@@ -18,7 +18,7 @@ const Panes = ({ navigation, route }) => {
   const handleSelectedCategory = (item) => {
     dispatch(selectBread(item.id));
     navigation.navigate("Detalles", {
-      name: item.name,
+      name: item.name, 
     });
   };
 
